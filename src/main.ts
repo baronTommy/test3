@@ -35,7 +35,7 @@ export const main: Main = async (
     : answerValidator.throwError();
 
   const newTemplate = workFlow.margeTemplate({
-    answer,
+    answer: question.fmt ? question.fmt(answer) : answer,
     template,
     searchValue: question.name,
   });
