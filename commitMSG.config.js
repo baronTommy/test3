@@ -603,9 +603,7 @@ const questionDictionary = [
     name: "closeIssue",
     type: "input",
     message: "closeIssue No.",
-    fmt: () => {
-      return "xxx";
-    },
+    fmt: (ans) => `Close #${ans}`,
   },
 ];
 
