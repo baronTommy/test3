@@ -1,9 +1,3 @@
-/**
- * filename
- *
- * https://github.com/davidtheclark/cosmiconfig
- */
-
 const template = `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
     
 {{body}}
@@ -553,7 +547,7 @@ const questionDictionary = [
   {
     name: "type",
     type: "search-list",
-    message: "typeを選択してください。",
+    message: "Please select a type.",
     choices: [
       { name: "Fix: for a bug fix.", value: "Fix" },
       {
@@ -577,11 +571,13 @@ const questionDictionary = [
   {
     name: "(scope)",
     type: "search-list",
-    message: "scopeを選択してください。",
+    message: "Please select a scope.",
     choices: [
-      { name: "未選択", value: "" },
       { name: "Domain", value: "(Domain)" },
+      { name: "UseCase", value: "(UseCase)" },
+      { name: "Presenter", value: "(Presenter)" },
       { name: "UI", value: "(UI)" },
+      { name: "_NotSelected_", value: "" },
     ],
   },
   {
@@ -590,7 +586,7 @@ const questionDictionary = [
     message: "gitmojiを選択してください。",
     choices: gitmojis.map((v) => ({
       name: `${v.emoji} ${v.description}`,
-      value: `${v.code} ${v.description}`,
+      value: v.code,
     })),
   },
   {
