@@ -15,7 +15,7 @@ export const renderTpl = (
   const data = [
     [
       p.template
-        .replace(new RegExp(`${p.name}`), chalk.inverse.yellow(p.name))
+        .replace(new RegExp(`${p.name}`), chalk.inverse.green(p.name))
         .replace(new RegExp("{{", "g"), "")
         .replace(new RegExp("}}", "g"), ""),
     ],
