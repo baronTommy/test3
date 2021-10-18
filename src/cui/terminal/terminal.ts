@@ -12,7 +12,7 @@ export const clear = console.clear;
 export const renderTpl = (
   p: Pick<Config, "template"> & Pick<Question, "name">
 ) => {
-  const data = [
+  const body = [
     [
       p.template
         .replace(new RegExp(`${p.name}`), chalk.inverse.green(p.name))
@@ -21,7 +21,7 @@ export const renderTpl = (
     ],
   ];
 
-  const content = table(data, {
+  const content = table(body, {
     header: {
       alignment: "center",
       content: chalk.bold("Your template"),
