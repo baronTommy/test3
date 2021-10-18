@@ -13,6 +13,9 @@ export const main: Main = async (p) => {
   const isDone = workFlow.isDone(question);
 
   if (isDone) {
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    require("fs").writeFileSync(process.argv[3], `abs`);
+
     return Promise.resolve(template).finally(terminal.clear);
   }
 
