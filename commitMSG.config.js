@@ -603,7 +603,7 @@ const questionDictionary = [
     name: "closeIssue",
     type: "input",
     message: "closeIssue No.",
-    transformer: (a) => `---${a}`,
+    prefix: "xxx",
   },
 ];
 
