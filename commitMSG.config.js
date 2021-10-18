@@ -604,7 +604,7 @@ const questionDictionary = [
     type: "input",
     message: "Close the issue?",
     suffix: "Close #",
-    overwrite: (ans) => `Close #${ans}`,
+    overwrite: (ans) => (ans ? `Close #${ans}` : ""),
   },
 ];
 
