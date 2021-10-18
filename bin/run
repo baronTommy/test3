@@ -1,0 +1,27 @@
+#!/usr/bin/env node
+
+const fs = require("fs");
+const path = require("path");
+const project = path.join(__dirname, "../tsconfig.json");
+const dev = fs.existsSync(project);
+const config = require("cosmiconfig")
+  .cosmiconfigSync("commitMSG")
+  .search().config;
+
+const main = () => {
+  if (!dev) {
+    return require("../lib").main(config);
+  }
+  const tsConfigPaths = require("tsconfig-paths");
+  tsConfigPaths.register({
+    baseUrl: "src",
+    paths: {
+      "~/*": ["./*"],
+    },
+  });
+
+  require("ts-node").register({ project });
+  return require("index").main(config);
+};
+
+main();
