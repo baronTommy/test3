@@ -603,7 +603,9 @@ const questionDictionary = [
     name: "closeIssue",
     type: "input",
     message: "closeIssue No.",
-    prefix: "xxx",
+    when: () => {
+      return "xxx";
+    },
   },
 ];
 
