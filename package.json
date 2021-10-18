@@ -37,7 +37,8 @@
   },
   "files": [
     "/bin",
-    "/lib"
+    "/lib",
+    "README.md"
   ],
   "homepage": "https://github.com/baronTommy/interactive-commit-message",
   "keywords": [

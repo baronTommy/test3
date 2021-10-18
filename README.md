@@ -1,11 +1,18 @@
 # interactive-commit-message
 
+## install
+
+```bash
+npm i -D @capsule-corporation/interactive-commit-message
+```
+
 ## config file
 
-filename: `commitMSG.config.js`
-see: https://github.com/davidtheclark/cosmiconfig
+- `commitMSG.config.js`
 
 ### example
+
+TODO
 
 ## hook
 

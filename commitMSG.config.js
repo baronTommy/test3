@@ -1,3 +1,10 @@
+// https://github.com/davidtheclark/cosmiconfig
+
+/**
+ * Conventional Commits like
+ *
+ * https://www.conventionalcommits.org/en/v1.0.0/
+ */
 const template = `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
     
 {{body}}
@@ -603,8 +610,11 @@ const questionDictionary = [
     name: "issue",
     type: "input",
     message: "Close the issue?",
-    overwrite: (ans) => (ans ? `Close #${ans}` : ""),
     transformer: (input) => `Close #${input}`,
+    /**
+     * Overwrite the answer.
+     */
+    overwrite: (ans) => (ans ? `Close #${ans}` : ""),
   },
 ];
 
