@@ -4,13 +4,10 @@ const fs = require("fs");
 const path = require("path");
 const project = path.join(__dirname, "../tsconfig.json");
 const dev = fs.existsSync(project);
-const config = require("cosmiconfig")
-  .cosmiconfigSync("commitMSG")
-  .search().config;
 
 const main = () => {
   if (!dev) {
-    return require("../lib").main(config);
+    return require("../lib").main();
   }
   const tsConfigPaths = require("tsconfig-paths");
   tsConfigPaths.register({
@@ -21,7 +18,7 @@ const main = () => {
   });
 
   require("ts-node").register({ project });
-  return require("index").main(config);
+  return require("index").main();
 };
 
 main();

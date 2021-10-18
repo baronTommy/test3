@@ -1,3 +1,4 @@
+import { cosmiconfigSync } from "cosmiconfig";
 import * as commit from "./cui/commit";
 import * as terminal from "./cui/terminal";
 import type { Config, Question } from "./domain/type";
@@ -8,13 +9,17 @@ type Main = (p: {
   questionDictionary: Array<Question>;
   template: Config["template"];
 }) => Promise<void>;
-export const main: Main = async (p) => {
+export const main: Main = async (
+  p = cosmiconfigSync("commitMSG").search()?.config
+) => {
   const question = workFlow.getQuestion(p);
   const template = workFlow.fmtTpl(p);
   const isDone = workFlow.isDone(question);
 
   if (isDone) {
-    return Promise.resolve(template).then(commit.write).finally(terminal.clear);
+    return Promise.resolve(template)
+      .then(commit.setMsg)
+      .finally(terminal.clear);
   }
 
   terminal.clear();

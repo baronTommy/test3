@@ -1,1 +1,1 @@
-export { write } from "./commit";
+export { setMsg } from "./commit";
