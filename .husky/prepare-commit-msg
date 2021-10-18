@@ -1,8 +1,3 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+#!/usr/bin/env node
 
-# exec < /dev/tty bin/run --hook $1
-
-readonly COMMIT_MSG_FILE=$1
-
-cat README.md > "${COMMIT_MSG_FILE}"
+console.log(process.argv);
