@@ -1,3 +1,4 @@
+import * as chalk from "chalk";
 import * as inquirer from "inquirer";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
@@ -8,23 +9,26 @@ inquirer.registerPrompt("search-list", inquirerAutocompletePrompt);
 
 export const clear = console.clear;
 
-export const renderTpl = (p: Pick<Config, "template">) => {
+export const renderTpl = (
+  p: Pick<Config, "template"> & Pick<Question, "name">
+) => {
   const data = [
     [
       p.template
+        .replace(new RegExp(`${p.name}`), chalk.inverse.yellow(p.name))
         .replace(new RegExp("{{", "g"), "")
         .replace(new RegExp("}}", "g"), ""),
     ],
   ];
 
-  console.log(
-    table(data, {
-      header: {
-        alignment: "center",
-        content: "Your template",
-      },
-    })
-  );
+  const content = table(data, {
+    header: {
+      alignment: "center",
+      content: chalk.bold("Your template"),
+    },
+  });
+
+  console.log(content);
 };
 
 export const qAndA = (p: {

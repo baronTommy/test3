@@ -23,7 +23,7 @@ export const main: Main = async (
   }
 
   terminal.clear();
-  terminal.renderTpl({ template });
+  terminal.renderTpl({ ...question, template });
   const answerObj = await terminal.qAndA({
     question,
     template,
