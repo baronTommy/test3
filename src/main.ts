@@ -7,7 +7,7 @@ import * as workFlow from "./useCase/workFlow";
 type Main = (p: {
   questionDictionary: Array<Question>;
   template: Config["template"];
-}) => Promise<string>;
+}) => Promise<void>;
 export const main: Main = async (p) => {
   const question = workFlow.getQuestion(p);
   const template = workFlow.fmtTpl(p);
