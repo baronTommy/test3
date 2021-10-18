@@ -573,11 +573,11 @@ const questionDictionary = [
     type: "search-list",
     message: "Please select a scope.",
     choices: [
+      { name: "_NotSelected_", value: "" },
       { name: "Domain", value: "(Domain)" },
       { name: "UseCase", value: "(UseCase)" },
       { name: "Presenter", value: "(Presenter)" },
       { name: "UI", value: "(UI)" },
-      { name: "_NotSelected_", value: "" },
     ],
   },
   {
