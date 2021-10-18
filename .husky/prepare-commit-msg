@@ -3,7 +3,6 @@
 
 # exec < /dev/tty bin/run --hook $1
 
-# readonly COMMIT_MSG_FILE=$1
+readonly COMMIT_MSG_FILE=$1
 
-# cat README.md > "${COMMIT_MSG_FILE}"
-
+cat README.md > "${COMMIT_MSG_FILE}"
