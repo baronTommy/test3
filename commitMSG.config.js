@@ -2,7 +2,7 @@ const template = `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
     
 {{body}}
     
-{{footer}}`;
+{{closeIssue}}`;
 
 /**
  * https://github.com/carloscuesta/gitmoji/blob/master/src/data/gitmojis.json
@@ -592,17 +592,18 @@ const questionDictionary = [
   {
     name: "description",
     type: "input",
-    message: "descriptionを入力してください。",
+    message: "Please input the description.",
   },
   {
     name: "body",
     type: "input",
-    message: "bodyを入力してください。",
+    message: "Please input the body.",
   },
   {
-    name: "footer",
+    name: "closeIssue",
     type: "input",
-    message: "footerを入力してください。",
+    message: "closeIssue No.",
+    transformer: (a) => `---${a}`,
   },
 ];
 
