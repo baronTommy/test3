@@ -1,3 +1,4 @@
+import * as commit from "./cui/commit";
 import * as terminal from "./cui/terminal";
 import type { Config, Question } from "./domain/type";
 import * as answerValidator from "./useCase/answerValidator";
@@ -13,10 +14,7 @@ export const main: Main = async (p) => {
   const isDone = workFlow.isDone(question);
 
   if (isDone) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
-    require("fs").writeFileSync(process.argv[3], `abs`);
-
-    return Promise.resolve(template).finally(terminal.clear);
+    return Promise.resolve(template).then(commit.write).finally(terminal.clear);
   }
 
   terminal.clear();
