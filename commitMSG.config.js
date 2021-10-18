@@ -2,7 +2,7 @@ const template = `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
     
 {{body}}
     
-{{closeIssue}}`;
+{{issue}}`;
 
 /**
  * https://github.com/carloscuesta/gitmoji/blob/master/src/data/gitmojis.json
@@ -600,10 +600,11 @@ const questionDictionary = [
     message: "Please input the body.",
   },
   {
-    name: "closeIssue",
+    name: "issue",
     type: "input",
-    message: "closeIssue No.",
-    fmt: (ans) => `Close #${ans}`,
+    message: "Close the issue?",
+    suffix: "Close #",
+    overwrite: (ans) => `Close #${ans}`,
   },
 ];
 
