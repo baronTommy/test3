@@ -1,5 +1,5 @@
 import type { Setting } from "~/domain/core";
-import * as gitmoji from "~/user/plugin/gitmoji";
+import * as gitmoji from "../../plugin/gitmoji";
 
 export const conventionalCommitsGitmoji: Setting = {
   template: `{{type}}{{(scope)}}: {{gitmoji}} {{description}}

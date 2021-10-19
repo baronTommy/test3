@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.6.1",
+  "version": "0.7.2",
   "author": "baronTommy",
   "main": "lib/index.js",
   "bin": {
@@ -13,9 +13,11 @@
     "cosmiconfig": "7.0.1",
     "inquirer": "8.2.0",
     "inquirer-search-list": "1.2.6",
-    "table": "6.7.2"
+    "table": "6.7.2",
+    "tsc-alias": "1.3.10"
   },
   "devDependencies": {
+    "@tommy_baron/git-test-": "0.7.1",
     "@types/inquirer": "8.1.3",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.0",
@@ -34,8 +36,7 @@
     "ts-node": "10.3.0",
     "tsconfig-paths": "3.11.0",
     "tslib": "2.3.1",
-    "typescript": "4.4.4",
-    "@tommy_baron/git-test-": "0.5.0"
+    "typescript": "4.4.4"
   },
   "files": [
     "/bin",
@@ -60,7 +61,7 @@
     "lint": "eslint --fix --ignore-path .gitignore .",
     "fmt": "prettier --write --ignore-path .gitignore .",
     "preCommit": "yarn quality",
-    "prepack": "rm -rf lib && tsc -b",
+    "prepack": "rm -rf lib && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
     "prepare": "husky install"
   }
 }
