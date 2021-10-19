@@ -1,4 +1,4 @@
-// /** @type {import('eslint').Linter.Config} */
+/** @type {import('eslint').Linter.Config} */
 module.exports = {
   env: {
     "jest/globals": true,
@@ -14,6 +14,7 @@ module.exports = {
       files: [".eslintrc.js", "*.config.js"],
       rules: {
         "no-undef": "off",
+        "@typescript-eslint/no-var-requires": "off",
       },
     },
   ],

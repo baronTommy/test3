@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "author": "baronTommy",
   "main": "lib/user/index.js",
   "bin": {
@@ -17,7 +17,7 @@
     "tsc-alias": "1.3.10"
   },
   "devDependencies": {
-    "@tommy_baron/git-test-": "0.8.0",
+    "@tommy_baron/git-test-": "0.8.1",
     "@types/inquirer": "8.1.3",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.0",

@@ -13,6 +13,7 @@ type RenderTpl = (p: { question: Question } & Setting) => void;
 const renderTpl: RenderTpl = (p) => {
   const content = table(
     [
+      [`${p.questionDictionary.length + 1} questions left.`],
       [
         p.template
           .replace(
@@ -25,8 +26,8 @@ const renderTpl: RenderTpl = (p) => {
     ],
     {
       columnDefault: {
-        paddingLeft: 2,
-        paddingRight: 2,
+        paddingLeft: 1,
+        paddingRight: 1,
       },
       header: {
         content: chalk.bold("Your template"),
