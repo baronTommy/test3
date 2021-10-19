@@ -1,4 +1,4 @@
-import type { Question } from "~/domain/type";
+import type { Question } from "~/domain/core";
 import * as WorkFlow from "~/domain/workFlow";
 
 export const getQuestion: WorkFlow.GetQuestion = (p) =>

@@ -1,1 +1,0 @@
-export { valid } from "./answerValidator";

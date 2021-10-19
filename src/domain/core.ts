@@ -5,8 +5,7 @@ export type Answer = string;
 
 export type Question = QuestionCollection & {
   name: string;
-  transformer?: (input: string) => string;
-  overwrite?: (p: Answer) => string;
+  overwrite?: (p: Answer) => Answer;
 };
 
 export type Setting = {
@@ -27,7 +26,3 @@ export type Setting = {
     createTpl: (p: Setting) => Setting["template"];
   };
 };
-
-export type AnswerLike = string | number;
-export type AnswerVO = Record<Question["name"], AnswerLike>;
-export type FmtAnswer = (p: AnswerLike) => string;

@@ -1,4 +1,4 @@
-import type { Setting } from "~/domain/type";
+import type { Setting } from "~/domain/core";
 import * as gitmoji from "~/user/plugin/gitmoji";
 
 export const conventionalCommitsGitmoji: Setting = {

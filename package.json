@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "author": "baronTommy",
   "main": "lib/index.js",
   "bin": {

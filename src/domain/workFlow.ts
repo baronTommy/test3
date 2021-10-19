@@ -1,4 +1,4 @@
-import type { Answer, Question, Setting } from "./type";
+import type { Answer, Question, Setting } from "./core";
 
 export type GetQuestion = (p: Setting) => Question | undefined;
 export type UpdateTemplate = (p: {

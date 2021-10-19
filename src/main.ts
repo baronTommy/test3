@@ -1,8 +1,7 @@
 import { cosmiconfigSync } from "cosmiconfig";
 import * as commit from "./cui/commit";
 import * as terminal from "./cui/terminal";
-import type { Setting } from "./domain/type";
-import * as answerValidator from "./useCase/answerValidator";
+import type { Setting } from "./domain/core";
 import * as workFlow from "./useCase/workFlow";
 
 type Main = (p: Setting) => Promise<void>;
@@ -20,7 +19,7 @@ export const main: Main = async (
 
   const answerVO = await terminal.renderingQnA({ ...p, question });
 
-  const mayBeAnswer = answerValidator.valid({
+  const mayBeAnswer = terminal.validator.valid({
     answerVO,
     questionName: question.name,
   });

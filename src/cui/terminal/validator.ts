@@ -1,4 +1,7 @@
-import type { AnswerLike, AnswerVO, FmtAnswer, Question } from "~/domain/type";
+import type { Question } from "~/domain/core";
+import type { AnswerLike, AnswerVO } from "./type";
+
+type FmtAnswer = (p: AnswerLike) => string;
 
 const isValid = (p: unknown): p is AnswerLike =>
   typeof p === "string" || typeof p === "number";

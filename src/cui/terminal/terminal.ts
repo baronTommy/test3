@@ -4,7 +4,9 @@ import * as inquirer from "inquirer";
 // @ts-expect-error
 import * as inquirerAutocompletePrompt from "inquirer-search-list";
 import { table } from "table";
-import type { AnswerVO, Question, Setting } from "~/domain/type";
+import type { Question, Setting } from "~/domain/core";
+import type { AnswerVO } from "./type";
+
 inquirer.registerPrompt("search-list", inquirerAutocompletePrompt);
 
 type RenderTpl = (p: { question: Question } & Setting) => void;
@@ -27,7 +29,6 @@ const renderTpl: RenderTpl = (p) => {
         paddingRight: 2,
       },
       header: {
-        alignment: "center",
         content: chalk.bold("Your template"),
       },
       border: {
