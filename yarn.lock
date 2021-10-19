@@ -603,6 +603,18 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
+"@tommy_baron/git-test-@0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.5.0.tgz#6121a0329c6e3eed60cdb180a0e8a0323d2e08c5"
+  integrity sha512-UZ69GvC5oq10sk+CfBIiFp3JgxQqxnr/V1kCNuw8R5HIIQz2NQfwNEodO0KfTnreFpK+pR7xGXFob1vl4anwDg==
+  dependencies:
+    "@types/chalk" "2.2.0"
+    chalk "4.1.2"
+    cosmiconfig "7.0.1"
+    inquirer "8.2.0"
+    inquirer-search-list "1.2.6"
+    table "6.7.2"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
