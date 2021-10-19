@@ -1,0 +1,1 @@
+export { conventionalCommitsGitmoji } from "./conventionalCommitsGitmoji";

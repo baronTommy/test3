@@ -11,9 +11,8 @@ export const main: Main = async (
 ) => {
   const question = workFlow.getQuestion(p);
   const template = p.config.createTpl(p);
-  const isDone = workFlow.isDone(question);
 
-  if (isDone) {
+  if (workFlow.isDone(question)) {
     return Promise.resolve(template)
       .then((msg) => commit.setMsg({ msg }))
       .finally(terminal.clear);

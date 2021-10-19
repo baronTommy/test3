@@ -1,9 +1,11 @@
-import type { GetQuestion, Question, UpdateTemplate } from "~/domain/type";
+import type { Question } from "~/domain/type";
+import * as WorkFlow from "~/domain/workFlow";
 
-export const getQuestion: GetQuestion = (p) => p.questionDictionary.shift();
+export const getQuestion: WorkFlow.GetQuestion = (p) =>
+  p.questionDictionary.shift();
 
 export const isDone = (p: Question | undefined): p is undefined =>
   p === undefined;
 
-export const updateTemplate: UpdateTemplate = (p) =>
+export const updateTemplate: WorkFlow.UpdateTemplate = (p) =>
   p.template.replace(`{{${p.searchValue}}}`, p.answer);
