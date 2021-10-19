@@ -7,7 +7,7 @@ const dev = fs.existsSync(project);
 
 const main = () => {
   if (!dev) {
-    return require("../lib").main();
+    return require("../lib/main").main();
   }
   const tsConfigPaths = require("tsconfig-paths");
   tsConfigPaths.register({
@@ -18,7 +18,7 @@ const main = () => {
   });
 
   require("ts-node").register({ project });
-  return require("index").main();
+  return require("main").main();
 };
 
 main();
