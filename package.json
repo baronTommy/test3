@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.8.1",
+  "version": "0.8.3",
   "author": "baronTommy",
   "main": "lib/user/index.js",
   "bin": {
@@ -11,13 +11,14 @@
     "@types/chalk": "2.2.0",
     "chalk": "4.1.2",
     "cosmiconfig": "7.0.1",
+    "gitmojis": "3.5.0",
     "inquirer": "8.2.0",
     "inquirer-search-list": "1.2.6",
     "table": "6.7.2",
     "tsc-alias": "1.3.10"
   },
   "devDependencies": {
-    "@tommy_baron/git-test-": "0.8.1",
+    "@tommy_baron/git-test-": "0.8.3",
     "@types/inquirer": "8.1.3",
     "@types/jest": "27.0.2",
     "@types/node": "16.11.0",
@@ -48,7 +49,8 @@
     "commit",
     "conventionalcommits",
     "conventional changelog",
-    "semantic-version"
+    "semantic-version",
+    "gitmoji"
   ],
   "license": "MIT",
   "repository": "wip/interactive-commit-message",

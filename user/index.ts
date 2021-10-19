@@ -1,8 +1,8 @@
-import * as gitmoji from "./plugin/gitmoji";
+import { gitmojis } from "./plugin/gitmoji";
 import { conventionalCommitsGitmoji } from "./setting/conventionalCommitsGitmoji";
 
 export const plugin = {
-  gitmoji,
+  gitmojis,
 };
 
 export const setting = {

@@ -1,5 +1,5 @@
 import type { Setting } from "~/domain/core";
-import * as gitmoji from "../plugin/gitmoji";
+import { gitmojis } from "../plugin/gitmoji";
 
 export const conventionalCommitsGitmoji: Setting = {
   template: `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
@@ -58,7 +58,10 @@ export const conventionalCommitsGitmoji: Setting = {
       // @ts-expect-error
       type: "search-list",
       message: "gitmojiを選択してください。",
-      choices: gitmoji.makeChoices({ gitmojis: gitmoji.gitmojis }),
+      choices: gitmojis.map((v) => ({
+        name: `${v.emoji} ${v.description}`,
+        value: v.code,
+      })),
     },
     {
       name: "description",

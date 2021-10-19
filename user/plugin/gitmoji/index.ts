@@ -1,1 +1,1 @@
-export { gitmojis, makeChoices } from "./gitmoji";
+export { gitmojis } from "./gitmoji";
