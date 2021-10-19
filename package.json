@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.7.3",
+  "version": "0.8.0",
   "author": "baronTommy",
   "main": "lib/user/index.js",
   "bin": {
@@ -56,7 +56,7 @@
     "quality": "run-p quality:*",
     "quality:lint-fmt": "run-s lint fmt",
     "quality:unitTest": "jest",
-    "quality:jscpd": "jscpd ./src",
+    "quality:jscpd": "jscpd ./app",
     "quality:type": "tsc --project ./tsconfig.json --noEmit",
     "lint": "eslint --fix --ignore-path .gitignore .",
     "fmt": "prettier --write --ignore-path .gitignore .",
