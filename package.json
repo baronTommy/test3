@@ -1,9 +1,9 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "Conventional Commits tool",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "author": "baronTommy",
-  "main": "lib/index.js",
+  "main": "lib/user/index.js",
   "bin": {
     "interactive-commit-message": "./bin/run"
   },
