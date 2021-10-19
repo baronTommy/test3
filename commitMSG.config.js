@@ -1,1 +1,2 @@
-module.exports = require("@tommy_baron/git-test-/lib/user/setting/conventionalCommitsGitmoji");
+module.exports =
+  require("@tommy_baron/git-test-").setting.conventionalCommitsGitmoji.conventionalCommitsGitmoji;

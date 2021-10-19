@@ -619,10 +619,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@tommy_baron/git-test-@0.7.3":
-  version "0.7.3"
-  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.7.3.tgz#180ddd0de7751ca1fa565a8266d229e952474fa7"
-  integrity sha512-j80fB0IESuiciLCGNJHjRTwU1ETbXOEixVe6rFqMIZVLc21hmU1g5inrhe8Zqlxp8PDCP3C4CrHVQ5/dQvZRew==
+"@tommy_baron/git-test-@0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.8.0.tgz#4c7cc26d8f7bf071bfea9f081a557b8268e4558a"
+  integrity sha512-VmzHGmq/+aJChT/FBuwyltWaZ/2NS3ZU3zMI1U32HD2EI78+nPYezkC8NIN1PH98XTevBmdJgQVKh4vxEBuf/Q==
   dependencies:
     "@types/chalk" "2.2.0"
     chalk "4.1.2"
