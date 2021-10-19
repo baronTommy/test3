@@ -16,8 +16,10 @@ TODO
 
 ## hook
 
+- prepare-commit-msg
+
 ```bash
 #!/bin/sh
 
-exec < /dev/tty bin/run --hook $1
+exec < /dev/tty npx @capsule-corporation/interactive-commit-message --hook $1
 ```

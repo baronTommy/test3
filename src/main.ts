@@ -1,40 +1,38 @@
 import { cosmiconfigSync } from "cosmiconfig";
 import * as commit from "./cui/commit";
 import * as terminal from "./cui/terminal";
-import type { Config, Question } from "./domain/type";
+import type { Setting } from "./domain/type";
 import * as answerValidator from "./useCase/answerValidator";
 import * as workFlow from "./useCase/workFlow";
 
-type Main = (p: {
-  questionDictionary: Array<Question>;
-  template: Config["template"];
-}) => Promise<void>;
+type Main = (p: Setting) => Promise<void>;
 export const main: Main = async (
   p = cosmiconfigSync("commitMSG").search()?.config
 ) => {
   const question = workFlow.getQuestion(p);
-  const template = workFlow.fmtTpl(p);
+  const template = p.config.createTpl(p);
   const isDone = workFlow.isDone(question);
 
   if (isDone) {
     return Promise.resolve(template)
-      .then(commit.setMsg)
+      .then((msg) => commit.setMsg({ msg }))
       .finally(terminal.clear);
   }
 
-  terminal.clear();
-  terminal.renderTpl({ ...question, template });
-  const answerObj = await terminal.qAndA({
-    question,
-    template,
+  const answerVO = await terminal.renderingQnA({ ...p, question });
+
+  const mayBeAnswer = answerValidator.valid({
+    answerVO,
+    questionName: question.name,
   });
 
-  const mayBeAnswer = answerObj[question.name];
-  const answer = answerValidator.isValid(mayBeAnswer)
-    ? workFlow.fmtAnswer(mayBeAnswer)
-    : answerValidator.throwError();
+  if (mayBeAnswer.isErr) {
+    throw new Error(mayBeAnswer.error.reason);
+  }
 
-  const newTemplate = workFlow.margeTemplate({
+  const { answer } = mayBeAnswer.value;
+
+  const newTemplate = workFlow.updateTemplate({
     answer: question.overwrite ? question.overwrite(answer) : answer,
     template,
     searchValue: question.name,
@@ -43,5 +41,6 @@ export const main: Main = async (
   return main({
     questionDictionary: p.questionDictionary,
     template: newTemplate,
+    config: p.config,
   });
 };

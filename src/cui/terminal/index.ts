@@ -1,1 +1,1 @@
-export { clear, qAndA, renderTpl } from "./terminal";
+export { clear, renderingQnA } from "./terminal";

@@ -1,7 +1,1 @@
-export {
-  fmtAnswer,
-  fmtTpl,
-  getQuestion,
-  isDone,
-  margeTemplate,
-} from "./workFlow";
+export { getQuestion, isDone, updateTemplate } from "./workFlow";

@@ -1,1 +1,1 @@
-export { isValid, throwError } from "./answerValidator";
+export { valid } from "./answerValidator";
