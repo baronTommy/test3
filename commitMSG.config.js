@@ -100,12 +100,5 @@ module.exports = {
       choicesGetter: fetchMyIssues,
       overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
     },
-    // {
-    //   name: "issue",
-    //   type: "input",
-    //   message: "Close the issue?",
-    //   transformer: (input) => `Close #${input}`,
-    //   overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
-    // },
   ],
 };
