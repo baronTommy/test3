@@ -15,6 +15,7 @@ const fetchMyIssues = () =>
         value: issue.number,
       }))
     )
+    .then((v) => [{ name: "_NotSelected_", value: "" }, ...v])
     .catch(() => []);
 
 const gitmojis = require("@tommy_baron/git-test-").plugin.gitmojis.map((v) => ({

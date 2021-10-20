@@ -1,7 +1,7 @@
 import type { Setting } from "~/domain/core";
 import { gitmojis } from "../plugin/gitmoji";
 
-export const conventionalCommitsGitmoji: Setting = {
+export const capsuleCorporation: Setting = {
   template: `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
     
 {{body}}
