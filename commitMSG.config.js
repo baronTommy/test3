@@ -12,7 +12,7 @@ const fetchMyIssues = () =>
     .then((r) =>
       r.data.map((issue) => ({
         name: `#${issue.number}: ${issue.title}`,
-        value: `#${issue.number}`,
+        value: issue.number,
       }))
     )
     .catch(() => []);
