@@ -1366,10 +1366,10 @@
     ejs "^2.6.1"
     magic-string "^0.25.0"
 
-"@tommy_baron/git-test-@0.9.3":
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.9.3.tgz#4f4f3f9b61f07f0c4e0b7b65b7344ef97e3fd149"
-  integrity sha512-xCC+XKIWa/yPEqwo6iFF7y79KdCuK+ijsD1V73V8f6cgRn60m2u+bDATTT8314jXdb1RtnM9J9fxlw9iSWHlNg==
+"@tommy_baron/git-test-@0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.10.0.tgz#dc666d771e0b917347c17de7703e5f31baa389f9"
+  integrity sha512-0kHJ6XkEOsYB9qLozlMmRFEBXD/ETwpfQ/of1gxJNflY8Aa5UZBTf5EeYy0qFr3kFoqTJvNDwKuXufB8UK2Q4w==
   dependencies:
     "@octokit/rest" "18.12.0"
     "@types/chalk" "2.2.0"
