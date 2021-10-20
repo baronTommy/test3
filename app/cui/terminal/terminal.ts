@@ -5,8 +5,8 @@ import * as inquirer from "inquirer";
 import * as inquirerAutocompletePrompt from "inquirer-search-list";
 import { table } from "table";
 import type { Question, Setting } from "~/domain/core";
+import * as workFlow from "~/useCase/workFlow";
 import type { AnswerVO } from "./type";
-
 inquirer.registerPrompt("search-list", inquirerAutocompletePrompt);
 
 type RenderTpl = (p: { question: Question } & Setting) => void;
@@ -58,27 +58,12 @@ const renderTpl: RenderTpl = (p) => {
   console.log(content);
 };
 
-const findQuestion = async (p: Parameters<QAndA>[0]) => {
-  if (p.question.type === "input") {
-    return p;
-  }
-
-  if (p.question.type === "search-list") {
-    return {
-      ...p,
-      question: { ...p.question, choices: await p.question.getChoices() },
-    };
-  }
-  throw new Error("type Error");
-};
-
 type QAndA = (p: {
   question: Question;
   template: Setting["template"];
 }) => Promise<AnswerVO>;
 const qAndA: QAndA = async (p) => {
-  const { question } = await findQuestion(p);
-  // TODO any
+  const { question } = await workFlow.findQuestion(p.question, p.template);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return inquirer.prompt<AnswerVO>(question as any);
 };

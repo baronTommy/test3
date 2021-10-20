@@ -8,16 +8,16 @@ type QuestionBase = {
   overwriteAnswer?: (p: Answer) => Answer;
 };
 
-type SearchList = {
+export type SearchListTypeQ = {
   type: "search-list";
   getChoices: () => Promise<Array<{ name: string; value: string }>>;
 } & QuestionBase;
 
-type Input = {
+export type InputTypeQ = {
   type: "input";
 } & QuestionBase;
 
-export type Question = SearchList | Input;
+export type Question = SearchListTypeQ | InputTypeQ;
 
 export type Setting = {
   /**

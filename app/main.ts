@@ -1,13 +1,13 @@
 import { cosmiconfigSync } from "cosmiconfig";
-import * as commit from "./cui/commit";
 import * as terminal from "./cui/terminal";
 import type { Setting } from "./domain/core";
+import * as commit from "./lib/commit";
 import * as workFlow from "./useCase/workFlow";
 
+const conf = cosmiconfigSync("interactive-snippet").search()?.config;
+
 type Main = (p: Setting) => Promise<void>;
-export const main: Main = async (
-  p = cosmiconfigSync("interactive-snippet").search()?.config
-) => {
+export const main: Main = async (p = conf) => {
   const question = workFlow.getQuestion(p);
   const template = p.config.overwriteTpl
     ? p.config.overwriteTpl(p)
