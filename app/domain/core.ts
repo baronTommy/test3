@@ -1,17 +1,23 @@
 import type { ForegroundColor } from "chalk";
-import type { QuestionCollection } from "inquirer";
 
 export type Answer = string;
 
-export type Question = QuestionCollection & {
+type QuestionBase = {
   name: string;
-  choices?: Array<{ name: string; value: string }>;
-
-  // extend
+  message: string;
   overwriteAnswer?: (p: Answer) => Answer;
-  choicesGetter?: () => Promise<Question["choices"]> | Question["choices"];
-  //
 };
+
+type SearchList = {
+  type: "search-list";
+  getChoices: () => Promise<Array<{ name: string; value: string }>>;
+} & QuestionBase;
+
+type Input = {
+  type: "input";
+} & QuestionBase;
+
+export type Question = SearchList | Input;
 
 export type Setting = {
   /**
@@ -26,8 +32,8 @@ export type Setting = {
      */
     color: typeof ForegroundColor;
     /**
-     * Format the template after answering.
+     * Format the template before answering.
      */
-    createTpl: (p: Setting) => Setting["template"];
+    overwriteTpl?: (p: Setting) => Setting["template"];
   };
 };

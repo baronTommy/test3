@@ -59,14 +59,17 @@ const renderTpl: RenderTpl = (p) => {
 };
 
 const findQuestion = async (p: Parameters<QAndA>[0]) => {
-  if (!p.question.choicesGetter) {
+  if (p.question.type === "input") {
     return p;
   }
 
-  return {
-    ...p,
-    question: { ...p.question, choices: await p.question.choicesGetter() },
-  };
+  if (p.question.type === "search-list") {
+    return {
+      ...p,
+      question: { ...p.question, choices: await p.question.getChoices() },
+    };
+  }
+  throw new Error("type Error");
 };
 
 type QAndA = (p: {
@@ -75,7 +78,9 @@ type QAndA = (p: {
 }) => Promise<AnswerVO>;
 const qAndA: QAndA = async (p) => {
   const { question } = await findQuestion(p);
-  return inquirer.prompt<AnswerVO>(question);
+  // TODO any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return inquirer.prompt<AnswerVO>(question as any);
 };
 
 type Clear = () => void;

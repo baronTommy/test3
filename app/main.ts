@@ -9,7 +9,9 @@ export const main: Main = async (
   p = cosmiconfigSync("commitMSG").search()?.config
 ) => {
   const question = workFlow.getQuestion(p);
-  const template = p.config.createTpl(p);
+  const template = p.config.overwriteTpl
+    ? p.config.overwriteTpl(p)
+    : p.template;
 
   if (workFlow.isDone(question)) {
     return Promise.resolve(template)

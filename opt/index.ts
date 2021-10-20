@@ -1,6 +1,6 @@
 import * as github from "./plugin/github";
 import { gitmojis } from "./plugin/gitmoji";
-import { capsuleCorporation } from "./setting/capsuleCorporation";
+import { conventionalCommit } from "./setting/conventionalCommit";
 
 export const plugin = {
   gitmojis,
@@ -8,5 +8,5 @@ export const plugin = {
 };
 
 export const setting = {
-  capsuleCorporation,
+  conventionalCommit,
 };
