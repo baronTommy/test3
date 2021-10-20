@@ -58,11 +58,25 @@ const renderTpl: RenderTpl = (p) => {
   console.log(content);
 };
 
+const findQuestion = async (p: Parameters<QAndA>[0]) => {
+  if (!p.question.choicesGetter) {
+    return p;
+  }
+
+  return {
+    ...p,
+    question: { ...p.question, choices: await p.question.choicesGetter() },
+  };
+};
+
 type QAndA = (p: {
   question: Question;
   template: Setting["template"];
 }) => Promise<AnswerVO>;
-const qAndA: QAndA = (p) => inquirer.prompt<AnswerVO>(p.question);
+const qAndA: QAndA = async (p) => {
+  const { question } = await findQuestion(p);
+  return inquirer.prompt<AnswerVO>(question);
+};
 
 type Clear = () => void;
 export const clear: Clear = console.clear;

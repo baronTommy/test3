@@ -78,10 +78,7 @@ export const conventionalCommitsGitmoji: Setting = {
       type: "input",
       message: "Close the issue?",
       transformer: (input) => `Close #${input}`,
-      /**
-       * Overwrite the answer.
-       */
-      overwrite: (ans) => (ans ? `Close #${ans}` : ""),
+      overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
     },
   ],
 };

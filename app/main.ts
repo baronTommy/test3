@@ -31,7 +31,9 @@ export const main: Main = async (
   const { answer } = mayBeAnswer.value;
 
   const newTemplate = workFlow.updateTemplate({
-    answer: question.overwrite ? question.overwrite(answer) : answer,
+    answer: question.overwriteAnswer
+      ? question.overwriteAnswer(answer)
+      : answer,
     template,
     searchValue: question.name,
   });

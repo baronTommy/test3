@@ -5,7 +5,12 @@ export type Answer = string;
 
 export type Question = QuestionCollection & {
   name: string;
-  overwrite?: (p: Answer) => Answer;
+  choices?: Array<{ name: string; value: string }>;
+
+  // extend
+  overwriteAnswer?: (p: Answer) => Answer;
+  choicesGetter?: () => Promise<Question["choices"]> | Question["choices"];
+  //
 };
 
 export type Setting = {
