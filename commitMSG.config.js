@@ -1,9 +1,8 @@
-// module.exports =
-//   require("@tommy_baron/git-test-").setting.conventionalCommitsGitmoji;
+const { plugin } = require("@tommy_baron/git-test-");
 
 const fetchMyIssues = () =>
-  require("@tommy_baron/git-test-")
-    .plugin.github.fetchIssues({
+  plugin.github
+    .fetchIssues({
       owner: "octokit", // 取得対象とする組織 (organization)
       repo: "rest.js", // 取得対象のリポジトリ名
       state: "open", // オープン状態のIssueだけ取得
@@ -18,7 +17,7 @@ const fetchMyIssues = () =>
     .then((v) => [{ name: "_NotSelected_", value: "" }, ...v])
     .catch(() => []);
 
-const gitmojis = require("@tommy_baron/git-test-").plugin.gitmojis.map((v) => ({
+const gitmojis = plugin.gitmojis.map((v) => ({
   name: `${v.emoji} ${v.description}`,
   value: v.code,
 }));
