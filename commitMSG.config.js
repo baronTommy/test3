@@ -19,7 +19,7 @@ const fetchMyIssues = () =>
       }))
     )
     .then((v) => [{ name: "_NotSelected_", value: "" }, ...v])
-    .catch(() => []);
+    .catch(() => [{ name: "_NotSelected_", value: "" }]);
 
 /** @type {import('@tommy_baron/git-test-').Setting} */
 module.exports = {
@@ -87,12 +87,12 @@ module.exports = {
       type: "input",
       message: "Please input the body.",
     },
-    // {
-    //   name: "issue",
-    //   type: "search-list",
-    //   message: "Close the issue?",
-    //   getChoices: fetchMyIssues,
-    //   overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
-    // },
+    {
+      name: "issue",
+      type: "search-list",
+      message: "Close the issue?",
+      getChoices: fetchMyIssues,
+      overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
+    },
   ],
 };
