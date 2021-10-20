@@ -9,8 +9,8 @@ const fetchMyIssues = () =>
   github
     .fetchIssues({
       owner: "baronTommy",
-      repo: "rest.js",
-      state: "test3",
+      repo: "test3",
+      state: "open",
     })
     .then((r) =>
       r.data.map((issue) => ({
