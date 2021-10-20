@@ -23,3 +23,5 @@ TODO
 
 exec < /dev/tty npx @capsule-corporation/interactive-commit-message --hook $1
 ```
+
+-
