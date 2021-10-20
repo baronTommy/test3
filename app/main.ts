@@ -6,7 +6,7 @@ import * as workFlow from "./useCase/workFlow";
 
 type Main = (p: Setting) => Promise<void>;
 export const main: Main = async (
-  p = cosmiconfigSync("commitMSG").search()?.config
+  p = cosmiconfigSync("interactive-snippet").search()?.config
 ) => {
   const question = workFlow.getQuestion(p);
   const template = p.config.overwriteTpl

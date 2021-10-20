@@ -19,7 +19,7 @@ const fetchMyIssues = () =>
       }))
     )
     .then((v) => [{ name: "_NotSelected_", value: "" }, ...v])
-    .catch(() => [{ name: "_NotSelected_", value: "" }]);
+    .catch(() => []);
 
 /** @type {import('@tommy_baron/git-test-').Setting} */
 module.exports = {

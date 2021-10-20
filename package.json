@@ -5,7 +5,7 @@
   "author": "baronTommy",
   "main": "lib/opt/index.js",
   "bin": {
-    "interactive-commit-message": "./bin/run"
+    "@tommy_baron/git-test-": "./bin/run"
   },
   "dependencies": {
     "@octokit/rest": "18.12.0",
@@ -45,16 +45,18 @@
     "/lib",
     "README.md"
   ],
-  "homepage": "https://github.com/baronTommy/interactive-commit-message",
+  "homepage": "https://github.com/baronTommy/interactive-snippet",
   "keywords": [
     "commit",
-    "conventionalcommits",
+    "conventional-commits",
+    "conventional",
     "conventional changelog",
     "semantic-version",
+    "semantic-release",
     "gitmoji"
   ],
   "license": "MIT",
-  "repository": "wip/interactive-commit-message",
+  "repository": "baronTommy/interactive-snippet",
   "scripts": {
     "quality": "run-p quality:*",
     "quality:lint-fmt": "run-s lint fmt",

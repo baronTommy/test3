@@ -1,14 +1,14 @@
-# interactive-commit-message
+# interactive-snippet
 
 ## install
 
 ```bash
-npm i -D @capsule-corporation/interactive-commit-message
+npm i -D @capsule-corporation/interactive-snippet
 ```
 
 ## config file
 
-- `commitMSG.config.js`
+- `interactive-snippet.config.js`
 
 ### example
 
@@ -21,5 +21,5 @@ TODO
 ```bash
 #!/bin/sh
 
-exec < /dev/tty npx @capsule-corporation/interactive-commit-message --hook $1
+exec < /dev/tty npx @capsule-corporation/interactive-snippet --hook $1
 ```
