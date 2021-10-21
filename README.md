@@ -4,7 +4,7 @@
 
 ![preview](https://github.com/baronTommy/test3/blob/main/media/eyeCatch.gif)
 
-## nstall
+## Install
 
 ```bash
 npm i -D @capsule-corporation/interactive-snippet
