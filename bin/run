@@ -7,7 +7,7 @@ const dev = fs.existsSync(project);
 
 const main = () => {
   if (!dev) {
-    return require("../lib/main").main();
+    return require("@tommy_baron/git-test-/lib/app").main();
   }
   const tsConfigPaths = require("tsconfig-paths");
   tsConfigPaths.register({
