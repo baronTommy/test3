@@ -1,8 +1,7 @@
 # interactive-snippet
 
-https://github.com/baronTommy/test3/blob/main/media/preview.mov
-
-https://github.com/baronTommy/test3/raw/main/media/preview.mov
+![preview](./media/preview.gif)
+![preview](media/preview.gif)
 
 ## install
 
