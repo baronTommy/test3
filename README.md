@@ -1,8 +1,10 @@
 # interactive-snippet
 
-![preview](./media/preview.gif)
+<!-- TODO パス変更 -->
 
-## Install
+![preview](https://github.com/baronTommy/test3/blob/main/media/preview.gif)
+
+## nstall
 
 ```bash
 npm i -D @capsule-corporation/interactive-snippet
