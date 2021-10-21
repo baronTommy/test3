@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@octokit/rest": "18.12.0",
-    "@tommy_baron/git-test-": "0.10.7",
+    "@tommy_baron/git-test-": "0.10.8",
     "@types/chalk": "2.2.0",
     "chalk": "4.1.2",
     "cosmiconfig": "7.0.1",

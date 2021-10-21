@@ -28,6 +28,7 @@ https://github.com/baronTommy/test3/blob/main/interactive-snippet.config.js
 
 ```bash
 #!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
-exec < /dev/tty npx @capsule-corporation/interactive-snippet --hook $1 || true
+exec < /dev/tty npx interactive-snippet --hook $1
 ```
