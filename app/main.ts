@@ -28,21 +28,23 @@ export const main: Main = async (p = conf) => {
     throw new Error(mayBeAnswer.error.reason);
   }
 
-  const { answer } = mayBeAnswer.value;
+  const answer = question.overwriteAnswer
+    ? question.overwriteAnswer(mayBeAnswer.value.answer)
+    : mayBeAnswer.value.answer;
 
   const newTemplate = workFlow.updateTemplate({
-    answer: question.overwriteAnswer
-      ? question.overwriteAnswer(answer)
-      : answer,
+    answer,
     template,
     searchValue: question.name,
   });
 
+  const tpl = question.overwriteTpl
+    ? question.overwriteTpl(newTemplate)
+    : newTemplate;
+
   return main({
     questionDictionary: p.questionDictionary,
-    template: question.overwriteTpl
-      ? question.overwriteTpl(newTemplate)
-      : newTemplate,
+    template: tpl,
     config: p.config,
   });
 };
