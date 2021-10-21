@@ -11,5 +11,6 @@
       "~/*": ["app/*"]
     }
   },
-  "include": ["app/**/*", "opt/**/*"]
+  "include": ["app/**/*", "opt/**/*"],
+  "exclude": ["app/**/*.test.ts", "opt/**/*.test.ts"]
 }

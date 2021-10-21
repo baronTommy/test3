@@ -2,21 +2,21 @@
 
 ![preview](./media/preview.gif)
 
-## install
+## Install
 
 ```bash
 npm i -D @capsule-corporation/interactive-snippet
 ```
 
-## config file
+## Config file
 
 `interactive-snippet.config.js`
 
-### example
+### Example
 
 TODO 書く
 
-## hook
+## Commit hook
 
 ### husky
 
