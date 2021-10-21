@@ -1,6 +1,6 @@
 {
   "name": "@tommy_baron/git-test-",
-  "description": "Conventional Commits tool",
+  "description": "interactive snippet tool",
   "version": "0.10.0",
   "author": "baronTommy",
   "main": "lib/opt/index.js",

@@ -8,6 +8,7 @@ const gitmoji = gitmojis.map((v) => ({
 const fetchMyIssues = () =>
   github
     .fetchIssues({
+      // TODO リネーム
       owner: "baronTommy",
       repo: "test3",
       state: "open",

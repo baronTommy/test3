@@ -62,11 +62,11 @@ type QAndA = (p: {
   question: Question;
   template: Setting["template"];
 }) => Promise<AnswerVO>;
-const qAndA: QAndA = async (p) => {
-  const { question } = await workFlow.findQuestion(p.question, p.template);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return inquirer.prompt<AnswerVO>(question as any);
-};
+const qAndA: QAndA = (p) =>
+  workFlow
+    .findQuestion(p.question, p.template)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    .then((v) => inquirer.prompt<AnswerVO>(v.question as any));
 
 type Clear = () => void;
 export const clear: Clear = console.clear;
