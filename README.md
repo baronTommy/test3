@@ -1,7 +1,6 @@
 # interactive-snippet
 
 ![preview](./media/preview.gif)
-![preview](media/preview.gif)
 
 ## install
 
