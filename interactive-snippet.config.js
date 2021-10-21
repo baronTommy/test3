@@ -26,7 +26,7 @@ const fetchMyIssues = () =>
 
 /** @type {import('@tommy_baron/git-test-').Setting} */
 module.exports = {
-  template: `{{type}}{{(scope)}}: {{gitmoji}} {{description}}
+  template: `{{type}}({{scope}}): {{gitmoji}} {{description}}
           
 {{body}}
              
@@ -62,17 +62,18 @@ module.exports = {
         ]),
     },
     {
-      name: "(scope)",
+      name: "scope",
       type: "search-list",
       message: "Please select a scope.",
       getChoices: () =>
         Promise.resolve([
           notSelected,
-          { name: "Domain", value: "(Domain)" },
-          { name: "UseCase", value: "(UseCase)" },
-          { name: "Presenter", value: "(Presenter)" },
-          { name: "UI", value: "(UI)" },
+          { name: "Interface", value: "Interface" },
+          { name: "UserInterface", value: "UserInterface" },
+          { name: "UseCase", value: "UseCase" },
+          { name: "Domain", value: "Domain" },
         ]),
+      overwriteTpl: (tpl) => tpl.replace("()", ""),
     },
     {
       name: "gitmoji",
@@ -89,6 +90,7 @@ module.exports = {
       name: "body",
       type: "input",
       message: "Please input the body.",
+      overwriteTpl: (tpl) => tpl.replace(/\r?\n{2,}/g, "").trim(),
     },
     {
       name: "issue",
@@ -96,6 +98,7 @@ module.exports = {
       message: "Close the issue?",
       getChoices: fetchMyIssues,
       overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
+      overwriteTpl: (tpl) => tpl.replace(/\r?\n{2,}/g, "").trim(),
     },
   ],
 };

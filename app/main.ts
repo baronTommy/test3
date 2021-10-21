@@ -9,9 +9,7 @@ const conf = cosmiconfigSync("interactive-snippet").search()?.config;
 type Main = (p: Setting) => Promise<void>;
 export const main: Main = async (p = conf) => {
   const question = workFlow.getQuestion(p);
-  const template = p.config.overwriteTpl
-    ? p.config.overwriteTpl(p)
-    : p.template;
+  const template = p.template;
 
   if (workFlow.isDone(question)) {
     return Promise.resolve(template)
@@ -42,7 +40,9 @@ export const main: Main = async (p = conf) => {
 
   return main({
     questionDictionary: p.questionDictionary,
-    template: newTemplate,
+    template: question.overwriteTpl
+      ? question.overwriteTpl(newTemplate)
+      : newTemplate,
     config: p.config,
   });
 };

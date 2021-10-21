@@ -6,6 +6,7 @@ type QuestionBase = {
   name: string;
   message: string;
   overwriteAnswer?: (p: Answer) => Answer;
+  overwriteTpl?: (p: Setting["template"]) => Setting["template"];
 };
 
 export type SearchListTypeQ = {
@@ -31,9 +32,5 @@ export type Setting = {
      * https://github.com/chalk/chalk#colors
      */
     color: typeof ForegroundColor;
-    /**
-     * Format the template before answering.
-     */
-    overwriteTpl?: (p: Setting) => Setting["template"];
   };
 };
