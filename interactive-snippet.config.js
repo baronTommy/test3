@@ -78,7 +78,7 @@ module.exports = {
     {
       name: "gitmoji",
       type: "search-list",
-      message: "gitmojiを選択してください。",
+      message: "Please select a gitmoji",
       getChoices: () => Promise.resolve(gitmoji),
     },
     {
