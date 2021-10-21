@@ -1397,6 +1397,22 @@
     table "6.7.2"
     tsc-alias "1.3.10"
 
+"@tommy_baron/git-test-@0.10.6":
+  version "0.10.6"
+  resolved "https://registry.yarnpkg.com/@tommy_baron/git-test-/-/git-test--0.10.6.tgz#e6003e9e74fc05a5c83c268945bb0486ea807ce7"
+  integrity sha512-tJtYOIq1Cc4cbMPYPPA+TfDuLT3Q9VHJ5tZJjxw7Z3F7hdmBI7QdHrKQDU7HIYbaT5Ud5N99h09N5xkMpq+HNA==
+  dependencies:
+    "@octokit/rest" "18.12.0"
+    "@tommy_baron/git-test-" "0.10.5"
+    "@types/chalk" "2.2.0"
+    chalk "4.1.2"
+    cosmiconfig "7.0.1"
+    gitmojis "3.5.0"
+    inquirer "8.2.0"
+    inquirer-search-list "1.2.6"
+    table "6.7.2"
+    tsc-alias "1.3.10"
+
 "@tootallnate/once@1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
