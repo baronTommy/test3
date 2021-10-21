@@ -27,3 +27,5 @@ TODO 書く
 
 exec < /dev/tty npx @capsule-corporation/interactive-snippet --hook $1 || true
 ```
+
+-
