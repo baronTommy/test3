@@ -16,7 +16,9 @@ npm i -D @capsule-corporation/interactive-snippet
 
 ### Example
 
-TODO 書く
+<!-- TODO パス変更 -->
+
+https://github.com/baronTommy/test3/blob/main/interactive-snippet.config.js
 
 ## Commit hook
 

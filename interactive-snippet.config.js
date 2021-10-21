@@ -7,6 +7,9 @@ const gitmoji = gitmojis.map((v) => ({
 
 const notSelected = { name: "_NotSelected_", value: "" };
 
+/**
+ * https://github.com/octokit/rest.js/
+ */
 const fetchMyIssues = () =>
   github
     .fetchIssues({
@@ -24,16 +27,23 @@ const fetchMyIssues = () =>
     .then((v) => [notSelected, ...v])
     .catch(() => []);
 
-/** @type {import('@tommy_baron/git-test-').Setting} */
+/**
+ * @type {import('@tommy_baron/git-test-').Setting}
+ */
 module.exports = {
+  /**
+   * The part that matches questionDictionary.name will be replaced.
+   */
   template: `{{type}}({{scope}}): {{gitmoji}} {{description}}
           
 {{body}}
              
 {{issue}}`,
   config: {
+    /**
+     * This is the theme color of the terminal.
+     */
     color: "green",
-    overwriteTpl: (p) => p.template.replace(/\r?\n{2,}/g, "").trim(),
   },
   questionDictionary: [
     {
@@ -96,6 +106,9 @@ module.exports = {
       name: "issue",
       type: "search-list",
       message: "Close the issue?",
+      /**
+       * Get the issue.
+       */
       getChoices: fetchMyIssues,
       overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
       overwriteTpl: (tpl) => tpl.replace(/\r?\n{2,}/g, "").trim(),
