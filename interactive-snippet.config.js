@@ -5,6 +5,8 @@ const gitmoji = gitmojis.map((v) => ({
   value: v.code,
 }));
 
+const notSelected = { name: "_NotSelected_", value: "" };
+
 const fetchMyIssues = () =>
   github
     .fetchIssues({
@@ -19,7 +21,7 @@ const fetchMyIssues = () =>
         value: `${issue.number}`,
       }))
     )
-    .then((v) => [{ name: "_NotSelected_", value: "" }, ...v])
+    .then((v) => [notSelected, ...v])
     .catch(() => []);
 
 /** @type {import('@tommy_baron/git-test-').Setting} */
@@ -65,7 +67,7 @@ module.exports = {
       message: "Please select a scope.",
       getChoices: () =>
         Promise.resolve([
-          { name: "_NotSelected_", value: "" },
+          notSelected,
           { name: "Domain", value: "(Domain)" },
           { name: "UseCase", value: "(UseCase)" },
           { name: "Presenter", value: "(Presenter)" },
