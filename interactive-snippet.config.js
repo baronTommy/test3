@@ -1,11 +1,14 @@
 const { github, gitmojis } = require("@tommy_baron/git-test-").plugin;
 
-const gitmoji = gitmojis.map((v) => ({
-  name: `${v.emoji} ${v.description}`,
-  value: v.code,
-}));
-
 const notSelected = { name: "_NotSelected_", value: "" };
+
+const gitmoji = [
+  notSelected,
+  gitmojis.map((v) => ({
+    name: `${v.emoji} ${v.description}`,
+    value: v.code,
+  })),
+];
 
 /**
  * https://github.com/octokit/rest.js/
