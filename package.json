@@ -1,7 +1,7 @@
 {
   "name": "@tommy_baron/git-test-",
   "description": "interactive snippet tool",
-  "version": "0.10.8",
+  "version": "1.2.0",
   "author": "baronTommy",
   "main": "lib/opt/index.js",
   "bin": {
