@@ -15,11 +15,12 @@
     "gitmojis": "3.5.0",
     "inquirer": "8.2.0",
     "inquirer-search-list": "1.2.6",
-    "semantic-release": "18.0.0",
     "table": "6.7.2",
     "tsc-alias": "1.3.10"
   },
   "devDependencies": {
+    "semantic-release": "18.0.0",
+    "@semantic-release/npm": "8.0.2",
     "@types/chalk": "2.2.0",
     "@types/inquirer": "8.1.3",
     "@types/jest": "27.0.2",
@@ -46,7 +47,7 @@
     "/lib",
     "README.md"
   ],
-  "homepage": "https://github.com/baronTommy/interactive-snippet",
+  "homepage": "https://github.com/baronTommy/test3",
   "keywords": [
     "commit",
     "conventional-commits",
@@ -57,7 +58,7 @@
     "gitmoji"
   ],
   "license": "MIT",
-  "repository": "baronTommy/interactive-snippet",
+  "repository": "baronTommy/test3",
   "scripts": {
     "quality": "run-p quality:*",
     "quality:lint-fmt": "run-s lint fmt",
