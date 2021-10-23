@@ -32,3 +32,5 @@ https://github.com/baronTommy/test3/blob/main/interactive-snippet.config.js
 
 exec < /dev/tty npx interactive-snippet --hook $1
 ```
+
+-
