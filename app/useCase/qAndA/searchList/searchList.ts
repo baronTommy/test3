@@ -5,7 +5,15 @@ type P = {
   template: Setting["template"];
 };
 type MakeQuestion = (p: P) => Promise<P>;
-export const makeQuestion: MakeQuestion = async (p) => ({
-  ...p,
-  question: { ...p.question, choices: await p.question.getChoices() },
-});
+export const makeQuestion: MakeQuestion = async (p) => {
+  const choices = await p.question.getChoices().then((r) =>
+    r.map((v) => ({
+      ...v,
+      name: v.description,
+    }))
+  );
+  return {
+    ...p,
+    question: { ...p.question, choices },
+  };
+};

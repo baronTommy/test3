@@ -1,9 +1,9 @@
 const { github, gitmojis } = require("@tommy_baron/git-test-").plugin;
 
-const notSelected = { name: "_NotSelected_", value: "" };
+const notSelected = { description: "_NotSelected_", value: "" };
 
 const gitmoji = gitmojis.map((v) => ({
-  name: `${v.emoji} ${v.description}`,
+  description: `${v.emoji} ${v.description}`,
   value: v.code,
 }));
 
@@ -20,7 +20,7 @@ const fetchMyIssues = () =>
     })
     .then((r) =>
       r.data.map((issue) => ({
-        name: `#${issue.number}: ${issue.title}`,
+        description: `#${issue.number}: ${issue.title}`,
         value: `${issue.number}`,
       }))
     )
@@ -51,25 +51,54 @@ module.exports = {
       type: "search-list",
       message: "Please select a type.",
       getChoices: () =>
-        Promise.resolve([
-          { name: "Fix: for a bug fix.", value: "Fix" },
-          {
-            name: "Update: either for a backwards-compatible enhancement or for a rule change that adds reported problems.",
-            value: "Update",
-          },
-          { name: "New: implemented a new feature.", value: "New" },
-          {
-            name: "Breaking: for a backwards-incompatible enhancement or feature.",
-            value: "Breaking",
-          },
-          { name: "Docs: changes to documentation only.", value: "Docs" },
-          { name: "Build: changes to build process only.", value: "Build" },
-          { name: "Upgrade: for a dependency upgrade.", value: "Upgrade" },
-          {
-            name: "Chore: for refactoring, adding tests, etc. (anything that isn't user-facing).",
-            value: "Chore",
-          },
-        ]),
+        Promise.resolve(
+          /**
+           * https://github.com/conventional-changelog/commitlint/tree/master/%40commitlint/config-conventional
+           */
+          [
+            { description: "feat: New feature", value: "feat" },
+            { description: "fix: Bug fix", value: "fix" },
+            { description: "docs: Documentation only changes", value: "docs" },
+            {
+              description:
+                "style: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)",
+              value: "style",
+            },
+            {
+              description:
+                "refactor: Code change that neither fixes a bug nor adds a feature",
+              value: "refactor",
+            },
+            {
+              description: "perf: Code change that improves performance",
+              value: "perf",
+            },
+            {
+              description:
+                "test: Adding missing tests or correcting existing tests",
+              value: "test",
+            },
+            {
+              description:
+                "build: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)",
+              value: "build",
+            },
+            {
+              description:
+                "ci: Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs)",
+              value: "ci",
+            },
+            {
+              description:
+                "chore: Other changes that don't modify src or test files",
+              value: "chore",
+            },
+            {
+              description: "revert: Reverts a previous commit",
+              value: "revert",
+            },
+          ]
+        ),
     },
     {
       name: "scope",
@@ -78,10 +107,10 @@ module.exports = {
       getChoices: () =>
         Promise.resolve([
           notSelected,
-          { name: "Interface", value: "Interface" },
-          { name: "UserInterface", value: "UserInterface" },
-          { name: "UseCase", value: "UseCase" },
-          { name: "Domain", value: "Domain" },
+          { description: "UserInterface", value: "UserInterface" },
+          { description: "Interface", value: "Interface" },
+          { description: "UseCase", value: "UseCase" },
+          { description: "Domain", value: "Domain" },
         ]),
       overwriteTpl: (tpl) => tpl.replace("()", ""),
     },
