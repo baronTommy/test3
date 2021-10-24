@@ -1,20 +1,17 @@
 import { cosmiconfigSync } from "cosmiconfig";
 import * as terminal from "./cui/terminal";
 import type { Setting } from "./domain/core";
-import * as commit from "./lib/commit";
 import * as workFlow from "./useCase/workFlow";
 
 const conf = cosmiconfigSync("interactive-snippet").search()?.config;
 
-type Main = (p: Setting) => Promise<void>;
+type Main = (p: Setting) => Promise<string>;
 export const main: Main = async (p = conf) => {
   const question = workFlow.getQuestion(p);
   const template = p.template;
 
   if (workFlow.isDone(question)) {
-    return Promise.resolve(template)
-      .then((msg) => commit.setMsg({ msg }))
-      .finally(terminal.clear);
+    return Promise.resolve(template).finally(terminal.clear);
   }
 
   const answerVO = await terminal.renderingQnA({ ...p, question });

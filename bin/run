@@ -1,11 +1,13 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
+const cli = require("cac")();
 const path = require("path");
-const project = path.join(__dirname, "../tsconfig.json");
-const dev = fs.existsSync(project);
+const fs = require("fs");
 
 const main = () => {
+  const project = path.join(__dirname, "../tsconfig.json");
+  const dev = fs.existsSync(project);
+
   if (!dev) {
     return require("@tommy_baron/git-test-/lib/app").main();
   }
@@ -21,4 +23,17 @@ const main = () => {
   return require("main").main();
 };
 
-main();
+cli
+  .command("commit", "Interactively commit using the prompts")
+  .option("--hook", "DO NOT USE")
+  .action((args) => {
+    if (!args.hook) {
+      return;
+    }
+    main().then((msg) =>
+      fs.writeFileSync(path.join(process.cwd(), ".git", "COMMIT_EDITMSG"), msg)
+    );
+  });
+
+cli.help();
+cli.parse();

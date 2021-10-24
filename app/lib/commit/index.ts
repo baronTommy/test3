@@ -1,1 +1,0 @@
-export { setMsg } from "./commit";
