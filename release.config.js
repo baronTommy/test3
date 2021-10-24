@@ -15,12 +15,12 @@ module.exports = {
         preset: "conventionalcommits",
         presetConfig: {
           types: [
-            ...conf.questionDictionary.map((v) => ({
-              type: v.type,
-              section: v.type.toUpperCase(),
+            ...conf.questionDictionary[0].getChoices().map((v) => ({
+              type: v.value,
+              section: v.value.toUpperCase(),
               hidden: false,
             })),
-            { type: "", section: "-", hidden: false },
+            { type: "", section: "---", hidden: false },
           ],
         },
       },

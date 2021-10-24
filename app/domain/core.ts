@@ -11,7 +11,9 @@ type QuestionBase = {
 
 export type SearchListTypeQ = {
   type: "search-list";
-  getChoices: () => Promise<Array<{ description: string; value: string }>>;
+  getChoices: () =>
+    | Promise<Array<{ description: string; value: string }>>
+    | Array<{ description: string; value: string }>;
 } & QuestionBase;
 
 export type InputTypeQ = {
