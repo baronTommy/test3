@@ -14,7 +14,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Install modules
-        run: yarn install --frozen-lockfile
+        run: |
+          yarn install --frozen-lockfile
           yarn remove husky
       - name: Run Release
         run: yarn semantic-release
