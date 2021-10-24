@@ -1,4 +1,4 @@
-# interactive-snippet
+# interactive-commit
 
 <!-- TODO パス変更 -->
 
@@ -7,18 +7,18 @@
 ## Install
 
 ```bash
-npm i -D @capsule-corporation/interactive-snippet
+npm i -D @capsule-corporation/interactive-commit
 ```
 
 ## Config file
 
-`interactive-snippet.config.js`
+`interactive-commit.config.js`
 
 ### Example
 
 <!-- TODO パス変更 -->
 
-https://github.com/baronTommy/test3/blob/main/interactive-snippet.config.js
+https://github.com/baronTommy/test3/blob/main/interactive-commit.config.js
 
 ## Commit hook
 
