@@ -7,6 +7,8 @@ const conf = cosmiconfigSync("interactive-snippet").search()?.config;
 
 type Main = (p: Setting) => Promise<string>;
 export const main: Main = async (p = conf) => {
+  return Promise.resolve();
+
   const question = workFlow.getQuestion(p);
   const template = p.template;
 
