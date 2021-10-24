@@ -17,7 +17,7 @@ module.exports = {
           types: [
             ...conf.questionDictionary[0].getChoices().map((v) => ({
               type: v.value,
-              section: v.value.toUpperCase(),
+              section: v.value,
               hidden: false,
             })),
             { type: "", section: "---", hidden: false },
