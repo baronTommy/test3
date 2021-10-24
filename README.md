@@ -30,7 +30,11 @@ https://github.com/baronTommy/test3/blob/main/interactive-snippet.config.js
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-exec < /dev/tty npx interactive-snippet --hook $1
+if [ -n "$CI" ] ; then
+    echo "skip"
+else
+    exec < /dev/tty bin/run commit --hook $1 || true
+fi
 ```
 
 ---
