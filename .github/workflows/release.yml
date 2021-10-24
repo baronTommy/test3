@@ -16,7 +16,6 @@ jobs:
       - name: Install modules
         run: |
           yarn install --frozen-lockfile
-          yarn remove husky
       - name: Run Release
         run: yarn semantic-release
         env:
