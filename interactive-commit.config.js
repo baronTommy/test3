@@ -38,7 +38,8 @@ module.exports = {
           
 {{body}}
              
-{{issue}}`,
+Close #{{issue}}
+BREAKING CHANGE: {{breakingChange}}`,
   config: {
     /**
      * This is the theme color of the terminal.
@@ -136,8 +137,15 @@ module.exports = {
        * Get the issue.
        */
       getChoices: fetchMyIssues,
-      overwriteAnswer: (ans) => (ans ? `Close #${ans}` : ""),
-      overwriteTpl: (tpl) => tpl.replace(/\r?\n{2,}/g, "").trim(),
+      overwriteAnswer: (ans) => (ans ? ans : ""),
+      overwriteTpl: (tpl) => tpl.replace(/Close #\r?\n/, "").trim(),
+    },
+    {
+      name: "breakingChange",
+      type: "input",
+      message: "Please input the breakingChange.",
+      overwriteAnswer: (ans) => (ans ? ans : ""),
+      overwriteTpl: (tpl) => tpl.replace(/BREAKING CHANGE: $/, "").trim(),
     },
   ],
 };

@@ -30,9 +30,11 @@ cli
     if (!args.hook) {
       return;
     }
-    main().then((msg) =>
-      fs.writeFileSync(path.join(process.cwd(), ".git", "COMMIT_EDITMSG"), msg)
-    );
+    main().then((msg) => {
+      console.log(msg);
+
+      fs.writeFileSync(path.join(process.cwd(), ".git", "COMMIT_EDITMSG"), msg);
+    });
   });
 
 cli.help();
